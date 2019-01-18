@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Layout from 'components/layout';
 import Box from 'components/box';
@@ -8,27 +8,39 @@ import IOExample from 'components/io-example';
 import Modal from 'containers/modal';
 import { graphql } from 'gatsby';
 
-const Index = ({ data }) => (
-  <Layout>
-    <Box>
-      <Title as="h2" size="large">
-        {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
-      </Title>
-      <Modal>
-        <video
-          src="https://i.imgur.com/gzFqNSW.mp4"
-          playsInline
-          loop
-          autoPlay
-          muted
-        />
-      </Modal>
-    </Box>
-    <Gallery items={data.homeJson.gallery} />
-    <div style={{ height: '50vh' }} />
-    <IOExample />
-  </Layout>
-);
+import Cart from '../components/cart/cart';
+import Skus from '../components/products/skus';
+
+class Index extends Component {
+  render() {
+    const { data } = this.props;
+    return (
+      <Layout>
+        <Box>
+          <Title as="h2" size="large">
+            {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
+          </Title>
+          <Modal>
+            {/* <video
+              src="https://i.imgur.com/gzFqNSW.mp4"
+              playsInline
+              loop
+              autoPlay
+              muted
+            /> */}
+            <Cart>
+              <Skus />
+            </Cart>
+          </Modal>
+        </Box>
+
+        <Gallery items={data.homeJson.gallery} />
+        <div style={{ height: '50vh' }} />
+        <IOExample />
+      </Layout>
+    );
+  }
+}
 
 Index.propTypes = {
   data: PropTypes.object.isRequired,

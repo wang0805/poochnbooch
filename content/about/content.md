@@ -1,4 +1,4 @@
-Find the repository [on GitHub](https://github.com/fabe/gatsby-universal).
+Find the repository [on GitHub](https://github.com/wang0805/poochnbooch).
 
 ```
 # Installation

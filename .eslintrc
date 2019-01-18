@@ -5,6 +5,7 @@
     "node": true
   },
   "rules": {
+    "react/display-name": [0, { "ignoreTranspilerName": false }],
     "strict": 0,
     "no-console": "warn",
     "quotes": [
