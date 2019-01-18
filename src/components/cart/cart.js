@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Checkout from './checkout';
@@ -11,7 +12,7 @@ class Cart extends Component {
       localStorage.getItem('stripe_checkout_items')
     );
     if (existingCart && existingCart.length) {
-      this.context.setCart({ existingCart });
+      this.context.setCart(existingCart);
     }
   }
 
@@ -28,7 +29,7 @@ class Cart extends Component {
     if (!itemExisted) {
       updatedCart = [...updatedCart, { sku: newItem, quantity: 1 }];
     }
-    this.context.setCart({ updatedCart });
+    this.context.setCart(updatedCart);
     // Store the cart in the localStorage.
     localStorage.setItem('stripe_checkout_items', JSON.stringify(updatedCart));
   }

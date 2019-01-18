@@ -8,6 +8,9 @@ import IOExample from 'components/io-example';
 import Modal from 'containers/modal';
 import { graphql } from 'gatsby';
 
+import Cart from '../components/cart/cart';
+import Skus from '../components/products/skus';
+
 class Index extends Component {
   render() {
     const { data } = this.props;
@@ -18,15 +21,19 @@ class Index extends Component {
             {data.homeJson.content.childMarkdownRemark.rawMarkdownBody}
           </Title>
           <Modal>
-            <video
+            {/* <video
               src="https://i.imgur.com/gzFqNSW.mp4"
               playsInline
               loop
               autoPlay
               muted
-            />
+            /> */}
+            <Cart>
+              <Skus />
+            </Cart>
           </Modal>
         </Box>
+
         <Gallery items={data.homeJson.gallery} />
         <div style={{ height: '50vh' }} />
         <IOExample />

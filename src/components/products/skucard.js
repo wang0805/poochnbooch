@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const cardStyles = {
   display: 'flex',
@@ -44,11 +45,11 @@ class SkuCard extends React.Component {
   resetButton() {
     this.setState({
       disabled: false,
-      buttonText: 'ADD ME BABY ONE MORE TIME!',
+      buttonText: 'ADD ME AGAIN!',
     });
   }
-
-  addToCart(event, skuId, quantity = 1) {
+  // addToCart(event, skuId, quantity = 1)
+  addToCart(event, skuId) {
     event.preventDefault();
     this.setState({ disabled: true, buttonText: 'ADDED...' });
     this.props.addToCart(skuId);
@@ -73,5 +74,10 @@ class SkuCard extends React.Component {
     );
   }
 }
+
+SkuCard.propTypes = {
+  sku: PropTypes.object,
+  addToCart: PropTypes.func,
+};
 
 export default SkuCard;

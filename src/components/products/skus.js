@@ -14,10 +14,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query SkusForProduct {
-        skus: allStripeSku(
-          filter: { product: { id: { eq: "prod_EGl7ZnT96XrPf6" } } }
-          sort: { fields: [price] }
-        ) {
+        skus: allStripeSku(sort: { fields: [price] }) {
           edges {
             node {
               id

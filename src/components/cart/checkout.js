@@ -37,6 +37,7 @@ const Checkout = class extends React.Component {
   }
 
   render() {
+    console.log(this.props, 'checkout');
     return (
       <button
         style={buttonStyles}
