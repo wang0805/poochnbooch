@@ -9,8 +9,6 @@ import Modal from 'containers/modal';
 import { graphql } from 'gatsby';
 
 class Index extends Component {
-  state = {};
-
   render() {
     const { data } = this.props;
     return (

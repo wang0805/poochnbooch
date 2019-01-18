@@ -1,11 +1,17 @@
 const siteConfig = require('./site-config');
 
+// for stripe api keys
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     ...siteConfig,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-stripe',
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
     `gatsby-transformer-json`,
@@ -27,6 +33,14 @@ module.exports = {
         rule: {
           include: /images/,
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Sku'],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: true,
       },
     },
   ],

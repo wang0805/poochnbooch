@@ -6,7 +6,9 @@ import { Provider } from './createContext';
 // Feel free to abstract actions and state away from this file.
 class AppProvider extends Component {
   state = {
+    cart: [],
     open: false,
+    setCart: items => this.setState({ cart: items }),
     showModal: () => this.setState({ open: true }),
     hideModal: () => this.setState({ open: false }),
   };
