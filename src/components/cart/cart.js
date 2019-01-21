@@ -17,6 +17,7 @@ class Cart extends Component {
   }
 
   render() {
+    console.log(this.context);
     return (
       <div>
         <Checkout cart={this.context.cart} />

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { MyContext } from '../../store/createContext';
+
 const cardStyles = {
   display: 'flex',
   flexDirection: 'column',
@@ -51,7 +53,7 @@ class SkuCard extends React.Component {
   addToCart(event, skuId) {
     event.preventDefault();
     this.setState({ disabled: true, buttonText: 'ADDED...' });
-    this.props.addToCart(skuId);
+    this.context.addToCart(skuId);
     setTimeout(this.resetButton.bind(this), 500);
   }
 
@@ -82,5 +84,7 @@ SkuCard.propTypes = {
   sku: PropTypes.object,
   addToCart: PropTypes.func,
 };
+
+SkuCard.contextType = MyContext;
 
 export default SkuCard;
