@@ -4,7 +4,7 @@ import SkuCard from './skucard';
 
 const conatinerStyles = {
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
   padding: '1rem 0 1rem 0',
@@ -18,6 +18,7 @@ export default props => (
           edges {
             node {
               id
+              image
               currency
               price
               attributes {
