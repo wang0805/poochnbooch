@@ -6,7 +6,7 @@ const Nav = () => (
   <Container>
     <ul>
       <li>
-        <p>Cart</p>
+        <p>TBC</p>
       </li>
       <li>
         <Link to="/about">About</Link>

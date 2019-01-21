@@ -16,11 +16,10 @@ const cardStyles = {
 const buttonStyles = {
   fontSize: '13px',
   textAlign: 'center',
-  color: '#fff',
-  outline: 'none',
+  color: '#fffff',
+  outline: 'solid',
   padding: '12px',
   boxShadow: '2px 5px 10px rgba(0,0,0,.1)',
-  backgroundColor: 'rgb(255, 178, 56)',
   borderRadius: '6px',
   letterSpacing: '1.5px',
 };
@@ -61,7 +60,10 @@ class SkuCard extends React.Component {
     return (
       <div style={cardStyles}>
         <h4>{sku.attributes.name}</h4>
-        <p>Price: {formatPrice(sku.price, sku.currency)}</p>
+        <br />
+        <p>{formatPrice(sku.price, sku.currency)}</p>
+        <img src={sku.image} width="200px" alt="TBA" />
+        <br />
         <button
           style={buttonStyles}
           onClick={event => this.addToCart(event, sku.id)}
@@ -69,6 +71,7 @@ class SkuCard extends React.Component {
         >
           {this.state.buttonText}
         </button>
+        <br />
         {this.state.paymentMessage}
       </div>
     );

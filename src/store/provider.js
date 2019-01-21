@@ -11,7 +11,26 @@ class AppProvider extends Component {
     setCart: items => this.setState({ cart: items }),
     showModal: () => this.setState({ open: true }),
     hideModal: () => this.setState({ open: false }),
+    addToCart: this.addToCart.bind(this),
   };
+
+  addToCart(newItem) {
+    let itemExisted = false;
+    let updatedCart = this.state.cart.map(item => {
+      if (newItem === item.sku) {
+        itemExisted = true;
+        return { sku: item.sku, quantity: ++item.quantity };
+      } else {
+        return item;
+      }
+    });
+    if (!itemExisted) {
+      updatedCart = [...updatedCart, { sku: newItem, quantity: 1 }];
+    }
+    this.state.setCart(updatedCart);
+    // Store the cart in the localStorage.
+    localStorage.setItem('stripe_checkout_items', JSON.stringify(updatedCart));
+  }
 
   render() {
     return <Provider value={this.state}>{this.props.children}</Provider>;
